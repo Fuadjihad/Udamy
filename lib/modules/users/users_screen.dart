@@ -1,19 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
-class UsersModel {
-  final int id;
-  final String name;
-  final String phone;
-
-  UsersModel({
-    required this.id,
-    required this.name,
-    required this.phone,
-  });
-}
-
+import '../../models/user/users_model.dart';
 class UsersScreen extends StatelessWidget {
   UsersScreen({Key? key}) : super(key: key);
 
