@@ -12,7 +12,7 @@ class _DoneTasksScreenState extends State<DoneTasksScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: const Text(
-        'Done Tasks',
+        'Done Tasks 12',
         style: TextStyle(
           fontSize: 50,
           fontWeight: FontWeight.w900,
