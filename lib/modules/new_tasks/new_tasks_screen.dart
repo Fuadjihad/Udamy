@@ -10,6 +10,7 @@ class NewTasksScreen extends StatefulWidget {
 class _NewTasksScreenState extends State<NewTasksScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Center(
       child: const Text(
         'New Tasks',
