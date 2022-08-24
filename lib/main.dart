@@ -21,7 +21,7 @@ import 'modules/login/login_screen.dart';
 import 'modules/messenger/messenger_screen.dart';
 import 'modules/users/users_screen.dart';
 import 'shared/bloc_observer.dart';
-
+// commint
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
