@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/cubit.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/states.dart';
-import 'package:flutter_udemy/shared/network/remote/dio_helper.dart';
-
 import 'Cubit/darkmod_cubit.dart';
 
 class NewsLayout extends StatelessWidget {
@@ -30,7 +28,7 @@ class NewsLayout extends StatelessWidget {
                   onPressed: () {
                     DarkModCubit().get(context).changeThem();
                   },
-                  icon: Icon(Icons.dark_mode_rounded)
+                  icon: const Icon(Icons.dark_mode_rounded)
                 )
               ],
             ),

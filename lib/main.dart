@@ -1,6 +1,5 @@
-// ignore_for_file: unused_import, prefer_const_constructors, unused_label
+// ignore_for_file: unused_import, prefer_const_constructors, unused_label, must_be_immutable
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

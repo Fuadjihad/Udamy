@@ -56,9 +56,9 @@ class _BmiScreenState extends State<BmiScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
-                            Expanded(
+                            const Expanded(
                               flex: 2,
-                              child: const Image(
+                              child: Image(
                                 color: Colors.white,
                                 // width: 70,
                                 // height: 100,
@@ -70,8 +70,8 @@ class _BmiScreenState extends State<BmiScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            Expanded(
-                              child: const Text(
+                            const Expanded(
+                              child: Text(
                                 'MALE',
                                 style: TextStyle(
                                   fontSize: 25,
@@ -100,8 +100,8 @@ class _BmiScreenState extends State<BmiScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: isMale
-                            ? Color.fromARGB(255, 26, 27, 45)
-                            : Color.fromARGB(255, 230, 20, 75),
+                            ? const Color.fromARGB(255, 26, 27, 45)
+                            : const Color.fromARGB(255, 230, 20, 75),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(5.0),
@@ -109,7 +109,7 @@ class _BmiScreenState extends State<BmiScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
-                            Expanded(
+                            const Expanded(
                               flex: 2,
                               child: const Image(
                                 color: Colors.white,
