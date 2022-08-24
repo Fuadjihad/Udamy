@@ -1,24 +1,24 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_udemy/shared/components/components.dart';
+import 'package:flutter_udemy/shared/components/constants.dart';
+import 'package:flutter_udemy/shared/cubit/cubit.dart';
+import 'package:flutter_udemy/shared/cubit/states.dart';
 
-class NewTasksScreen extends StatefulWidget {
-  NewTasksScreen({Key? key}) : super(key: key);
+class NewTasksScreen extends StatelessWidget {
+  const NewTasksScreen({Key? key}) : super(key: key);
 
-  @override
-  State<NewTasksScreen> createState() => _NewTasksScreenState();
-}
-
-class _NewTasksScreenState extends State<NewTasksScreen> {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return Center(
-      child: const Text(
-        'New Tasks 13',
-        style: TextStyle(
-          fontSize: 50,
-          fontWeight: FontWeight.w900,
-        ),
-      ),
+    return BlocConsumer<AppCubit, AppStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var tasks = AppCubit().get(context).newTasks;
+
+        return buildTask(tasks: tasks);
+      },
     );
   }
 }

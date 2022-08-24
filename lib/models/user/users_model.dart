@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 class UsersModel {
   final int id;
   final String name;
