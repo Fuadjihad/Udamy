@@ -203,7 +203,10 @@ Widget buildArticlItem(
               borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage("${artical['urlToImage']}"),
+                image: artical['urlToImage'] != null
+                    ? NetworkImage("${artical['urlToImage']}")
+                    : NetworkImage(
+                        'https://offgridpermaculture.com/img/newspaper_classifieds_for_finding_off_grid_land_for_sale.jpg?ezimgfmt=rs:600x900/rscb8'),
               ),
             ),
           ),
