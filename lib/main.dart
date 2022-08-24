@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_udemy/main_screen/apps_scren.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/cubit.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/states.dart';
 import 'package:flutter_udemy/layout/news_app/news_layout.dart';
@@ -21,7 +20,8 @@ import 'modules/login/login_screen.dart';
 import 'modules/messenger/messenger_screen.dart';
 import 'modules/users/users_screen.dart';
 import 'shared/bloc_observer.dart';
-// commint
+// comment
+//todo thee most important thing in programing is istemraria
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
