@@ -19,6 +19,7 @@ import 'modules/login/login_screen.dart';
 import 'modules/messenger/messenger_screen.dart';
 import 'modules/users/users_screen.dart';
 import 'shared/bloc_observer.dart';
+
 // comment
 //todo thee most important thing in programing is istemraria
 void main() async {
@@ -37,9 +38,16 @@ class MyApp extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) =>
-          DarkModCubit()..changeThem(sherd: isDark),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => NewsCubit()..getBusiness(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) =>
+              DarkModCubit()..changeThem(sherd: isDark),
+        )
+      ],
       child: BlocConsumer<DarkModCubit, NewsStates>(
         listener: (context, state) {},
         builder: (context, state) {

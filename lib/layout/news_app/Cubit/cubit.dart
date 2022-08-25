@@ -1,12 +1,11 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/states.dart';
 import 'package:flutter_udemy/modules/business_news/business_screen.dart';
 import 'package:flutter_udemy/modules/science_news/science_screen.dart';
-import 'package:flutter_udemy/modules/settings/settings.dart';
+
 import 'package:flutter_udemy/modules/sports_news/sports_screen.dart';
 
 import '../../../shared/network/remote/dio_helper.dart';
@@ -53,7 +52,7 @@ class NewsCubit extends Cubit<NewsStates> {
     DioHelper.getData(
       url: 'v2/top-headlines',
       query: {
-        'country': 'ae',
+        'country': 'us',
         'category': 'business',
         'apiKey': 'b3c089b504424ddcb6035df0f7900399'
       },
@@ -71,11 +70,11 @@ class NewsCubit extends Cubit<NewsStates> {
 
   void getSports() {
     emit(NewsLoadingSportState());
-    if (sport.length == 0) {
+    if (sport.isEmpty) {
       DioHelper.getData(
         url: 'v2/top-headlines',
         query: {
-          'country': 'ae',
+          'country': 'us',
           'category': 'sport',
           'apiKey': 'b3c089b504424ddcb6035df0f7900399'
         },
@@ -95,11 +94,11 @@ class NewsCubit extends Cubit<NewsStates> {
 
   void getScience() {
     emit(NewsLoadingScienceState());
-    if (science.length == 0) {
+    if (science.isEmpty) {
       DioHelper.getData(
         url: 'v2/top-headlines',
         query: {
-          'country': 'ae',
+          'country': 'us',
           'category': 'science',
           'apiKey': 'b3c089b504424ddcb6035df0f7900399'
         },
@@ -115,5 +114,23 @@ class NewsCubit extends Cubit<NewsStates> {
     }
   }
 
-  
+  List<dynamic> search = [];
+
+  void getSearch(String value) {
+    emit(NewsLoadingSearchState());
+    search = [];
+    DioHelper.getData(
+      url: 'v2/everything',
+      query: {
+        'q': value,
+        'apiKey': 'b3c089b504424ddcb6035df0f7900399',
+      },
+    ).then((value) {
+      search = value?.data['articles'];
+      emit(NewsGetSearchDataSuccessState());
+    }).catchError((error) {
+      print(error.toString());
+      emit(NewsGetSearchDataErrorState(error.toString()));
+    });
+  }
 }

@@ -2,7 +2,6 @@
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_udemy/shared/components/constants.dart';
 import 'package:flutter_udemy/shared/cubit/cubit.dart';
 
@@ -22,7 +21,7 @@ Widget defaultButton({
       child: MaterialButton(
         onPressed: function,
         child: Text(
-          '${isUpperCase ? text.toUpperCase() : text}',
+          isUpperCase ? text.toUpperCase() : text,
           style: const TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
@@ -253,3 +252,10 @@ Widget articalItem(list, context) => ConditionalBuilder(
           itemCount: list.length,
         ),
     fallback: (context) => Center(child: CircularProgressIndicator()));
+
+void navigatTo(context, widget) => Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => widget,
+      ),
+    );
