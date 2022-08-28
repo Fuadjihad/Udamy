@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable, avoid_print, non_constant_identifier_names, use_function_type_syntax_for_parameters, must_be_immutable, unused_import, use_key_in_widget_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_udemy/layout/news_app/Cubit/darkmod_cubit.dart';
 import 'package:flutter_udemy/modules/archived_tasks/archived_tasks_screen.dart';
 import 'package:flutter_udemy/modules/done_tasks/done_tasks_screen.dart';
 import 'package:flutter_udemy/modules/new_tasks/new_tasks_screen.dart';
@@ -36,6 +37,13 @@ class HomeLayout extends StatelessWidget {
               title: Text(
                 cubit.title[cubit.currentStat],
               ),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      DarkModCubit().get(context).changeThem();
+                    },
+                    icon: const Icon(Icons.dark_mode_rounded))
+              ],
             ),
             body: state is! AppGetDataBaseLoadingState
                 ? cubit.screens[cubit.currentStat]
@@ -91,7 +99,6 @@ class HomeLayout extends StatelessWidget {
                                       type: TextInputType.none,
                                       onTape: () {
                                         showTimePicker(
-                                          
                                           context: context,
                                           initialTime: TimeOfDay.now(),
                                         ).then((value) {

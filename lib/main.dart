@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_udemy/layout/main_layout/apps_screns.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/cubit.dart';
 import 'package:flutter_udemy/layout/news_app/Cubit/states.dart';
 import 'package:flutter_udemy/layout/news_app/news_layout.dart';
@@ -115,11 +116,14 @@ class MyApp extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
+              bottomSheetTheme: BottomSheetThemeData(
+                backgroundColor: HexColor('1c1c1e'),
+              ),
             ),
             themeMode: DarkModCubit().get(context).isDark
                 ? ThemeMode.dark
                 : ThemeMode.light,
-            home: NewsLayout(),
+            home: AppsScrens(),
           );
         },
       ),

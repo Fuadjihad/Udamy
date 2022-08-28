@@ -2,6 +2,7 @@
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_udemy/layout/main_layout/cubit/apps__cubit.dart';
 import 'package:flutter_udemy/shared/components/constants.dart';
 import 'package:flutter_udemy/shared/cubit/cubit.dart';
 
@@ -91,14 +92,15 @@ Widget tasksBuilder(Map model, context) => Dismissible(
                 children: [
                   Text(
                     '${model['title']}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 23,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Text(
                     '${model['date']}',
                     style: TextStyle(
+                      fontSize: 12,
                       color: Colors.grey[400],
                     ),
                   ),
@@ -257,5 +259,43 @@ void navigatTo(context, widget) => Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => widget,
+      ),
+    );
+
+Widget mainW(context, text, widget, image) => Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {
+          navigatTo(context, widget);
+        },
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.amberAccent,
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage('$image'),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Expanded(
+              child: Text(
+                '${text}',
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+            ),
+          ],
+        ),
       ),
     );

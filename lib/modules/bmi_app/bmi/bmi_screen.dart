@@ -25,8 +25,9 @@ class _BmiScreenState extends State<BmiScreen> {
         backgroundColor: Color.fromARGB(255, 10, 15, 30),
         elevation: 0,
         // backgroundColor: Color.fromARGB(255, , g, b),
-        title: const Text(
+        title: Text(
           'BMI Calculator',
+          style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
       body: Column(
@@ -312,7 +313,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             FloatingActionButton(
                               backgroundColor: Color.fromARGB(255, 66, 70, 81),
                               mini: true,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.remove,
                               ),
                               onPressed: () {
@@ -364,7 +365,10 @@ class _BmiScreenState extends State<BmiScreen> {
                 // ignore: prefer_const_constructors
                 child: Text(
                   'Calculate',
-                  style: const TextStyle(color: Colors.white, fontSize: 25),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
                 )),
           )
         ],
